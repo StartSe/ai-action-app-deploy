@@ -1,0 +1,525 @@
+{
+  "titulo": "IA para Executivos",
+  "lead": "Cada um resolve um problema específico. Crie sua conta em 30 segundos, teste em dois minutos com dados de exemplo, sem nenhuma chave, e publique na nuvem com um clique, na sua própria conta.",
+  "repoPublico": "https://github.com/StartSe/ai-action-app-deploy",
+  "publicarSuite": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy",
+  "appsNaSuite": [
+    "pdi-time",
+    "agente-kanban",
+    "entrevista-ia",
+    "posts-sociais",
+    "prospeccao-ia",
+    "whatsapp-atendente",
+    "contratos-ia",
+    "reunioes-ia",
+    "financas-ia",
+    "voz-do-cliente",
+    "radar-sinais",
+    "bussola-ia",
+    "simulador-vendas",
+    "custos-ia",
+    "clone-site",
+    "prospeccao-linkedin",
+    "videos-campanha",
+    "automl-pocket",
+    "build-agentflows"
+  ],
+  "apps": [
+    {
+      "id": "pdi-time",
+      "nome": "PDI do Time",
+      "areas": [
+        "RH"
+      ],
+      "problema": "O líder chega à conversa de feedback sem um plano de desenvolvimento pronto.",
+      "ia": "Cruza as entregas da pessoa com os objetivos da empresa e gera um PDI de 90 dias.",
+      "integracoes": "IA (OpenRouter); quadro de tarefas e avisos por e-mail ou Slack são opcionais.",
+      "acento": "#692bd4",
+      "porta": 3001,
+      "captura": "capturas/pdi-time.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/pdi-time:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-pdi-time",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-pdi-time",
+      "docker": "docker run --rm -p 3001:10000 -v pdi-time-dados:/app/data ghcr.io/startse/pdi-time:latest"
+    },
+    {
+      "id": "agente-kanban",
+      "nome": "Agente de Kanban",
+      "areas": [
+        "Gestão",
+        "RH"
+      ],
+      "problema": "Operar o quadro de tarefas toma tempo do gestor.",
+      "ia": "Um agente com ferramentas cria, move, comenta e arquiva cartões a partir de comandos em português.",
+      "integracoes": "IA (OpenRouter) para entender o pedido e operar o quadro. Quadro do Trello para o agente mexer no quadro real do time em vez do de exemplo. Notificações (e-mail ou Slack) para o resumo do quadro toda manhã. Quadro de tarefas (MCP) para operar um quadro fora do Trello (Jira, Notion, monday).",
+      "acento": "#2e3b7a",
+      "porta": 3002,
+      "captura": "capturas/agente-kanban.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/agente-kanban:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-agente-kanban",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-agente-kanban",
+      "docker": "docker run --rm -p 3002:10000 -v agente-kanban-dados:/app/data ghcr.io/startse/agente-kanban:latest"
+    },
+    {
+      "id": "entrevista-ia",
+      "nome": "Entrevistadora IA",
+      "areas": [
+        "RH"
+      ],
+      "problema": "A triagem inicial de candidatos consome horas da equipe.",
+      "ia": "Entrevista o candidato por voz a partir da vaga e entrega um parecer técnico e cultural para o gestor decidir.",
+      "integracoes": "IA (OpenRouter) para conduzir a entrevista e escrever o parecer. ElevenLabs para a voz natural, o agente conversacional e a ligação telefônica, opcional. Pesquisa na web (Bright Data) para achar o perfil público do candidato, opcional. Notificações (e-mail ou Slack) para enviar os convites e o resumo semanal do processo.",
+      "acento": "#6e3597",
+      "porta": 3003,
+      "captura": "capturas/entrevista-ia.png",
+      "independente": true,
+      "plano": "standard",
+      "discoGB": 1,
+      "discoGuarda": "a configuração, a conta, as vagas, os candidatos e as entrevistas",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "imagem": "ghcr.io/startse/entrevista-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-entrevista-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-entrevista-ia",
+      "docker": "docker run --rm -p 3003:10000 -v entrevista-ia-dados:/app/data ghcr.io/startse/entrevista-ia:latest"
+    },
+    {
+      "id": "posts-sociais",
+      "nome": "Posts em Minutos",
+      "areas": [
+        "Marketing"
+      ],
+      "problema": "Há o que dizer, mas não há tempo de escrever para cada rede.",
+      "ia": "Escreve o post para LinkedIn, Instagram e X a partir de um briefing curto e gera a imagem.",
+      "integracoes": "IA (OpenRouter). Opcionais: OpenAI para as imagens, e-mail ou Slack para os rascunhos semanais com link de aprovação, e Zapier ou Make para programar a publicação.",
+      "acento": "#a5185a",
+      "porta": 3004,
+      "captura": "capturas/posts-sociais.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/posts-sociais:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-posts-sociais",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-posts-sociais",
+      "docker": "docker run --rm -p 3004:10000 -v posts-sociais-dados:/app/data ghcr.io/startse/posts-sociais:latest"
+    },
+    {
+      "id": "prospeccao-ia",
+      "nome": "Prospecção com IA",
+      "areas": [
+        "Vendas"
+      ],
+      "problema": "Cada busca de leads recomeça do zero, sem perfil salvo, evidência ou estratégia antes da mensagem.",
+      "ia": "Pesquisa empresas e pessoas pelo perfil ideal salvo, qualifica com evidências e sinais públicos, e escreve a estratégia e as mensagens da abordagem.",
+      "integracoes": "IA (OpenRouter) qualifica os leads, gera a hipótese de dor e escreve a estratégia e as mensagens. Pesquisa de mercado e sinais (Bright Data) é o motor de busca de empresas, pessoas e sinais públicos. Busca de leads (Apollo) continua como fonte alternativa de contatos. Notificações (e-mail ou Slack) avisam as oportunidades novas de uma prospecção salva. CRM (MCP) recebe os leads aprovados.",
+      "acento": "#0b5789",
+      "porta": 3005,
+      "captura": "capturas/prospeccao-ia.png",
+      "plano": "starter",
+      "discoGB": 1,
+      "discoGuarda": "a configuração, a conta, os produtos, os perfis de cliente, as prospecções e os leads",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "imagem": "ghcr.io/startse/prospeccao-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-prospeccao-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-prospeccao-ia",
+      "docker": "docker run --rm -p 3005:10000 -v prospeccao-ia-dados:/app/data ghcr.io/startse/prospeccao-ia:latest"
+    },
+    {
+      "id": "whatsapp-atendente",
+      "nome": "Atendente no WhatsApp",
+      "areas": [
+        "Atendimento",
+        "Vendas"
+      ],
+      "problema": "Perguntas repetidas chegam fora do horário e ninguém acompanha o que foi respondido.",
+      "ia": "Responde com o conhecimento da empresa, avisa quando o cliente precisa de uma pessoa e mostra o dia em números.",
+      "integracoes": "WhatsApp por QR Code (z-api) ou WhatsApp Cloud API (Meta).",
+      "acento": "#0e7c6a",
+      "porta": 3006,
+      "captura": "capturas/whatsapp-atendente.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "independente": true,
+      "plano": "starter",
+      "discoGB": 1,
+      "discoGuarda": "a configuração, as conversas e a conta",
+      "aposPublicar": "Depois de publicar, abra o app e clique em Configurações (`/setup`) para conectar a IA e o número de WhatsApp da empresa. O disco é o que faz a conexão e as conversas continuarem lá depois de cada publicação.",
+      "imagem": "ghcr.io/startse/whatsapp-atendente:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-whatsapp-atendente",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-whatsapp-atendente",
+      "docker": "docker run --rm -p 3006:10000 -v whatsapp-atendente-dados:/app/data ghcr.io/startse/whatsapp-atendente:latest"
+    },
+    {
+      "id": "contratos-ia",
+      "nome": "Leitura de Contratos",
+      "areas": [
+        "Jurídico"
+      ],
+      "problema": "Decidir o que negociar antes de acionar o jurídico.",
+      "ia": "Lê o PDF, pontua o risco e lista cláusulas críticas, prazos e o que está faltando.",
+      "integracoes": "IA (OpenRouter) para a leitura do contrato. Opcional: quadro de tarefas via MCP para os pontos a negociar e e-mail ou Slack para os avisos de prazo.",
+      "acento": "#473b91",
+      "porta": 3007,
+      "captura": "capturas/contratos-ia.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/contratos-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-contratos-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-contratos-ia",
+      "docker": "docker run --rm -p 3007:10000 -v contratos-ia-dados:/app/data ghcr.io/startse/contratos-ia:latest"
+    },
+    {
+      "id": "reunioes-ia",
+      "nome": "Ata Executiva",
+      "areas": [
+        "Gestão"
+      ],
+      "problema": "A reunião acaba sem decisões e responsáveis registrados.",
+      "ia": "Transcreve o áudio e gera a ata com ações, prazos e o e-mail de follow-up.",
+      "integracoes": "ElevenLabs ou OpenAI para transcrição de áudio; quadro de tarefas e avisos por e-mail ou Slack.",
+      "acento": "#465f9b",
+      "porta": 3008,
+      "captura": "capturas/reunioes-ia.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/reunioes-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-reunioes-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-reunioes-ia",
+      "docker": "docker run --rm -p 3008:10000 -v reunioes-ia-dados:/app/data ghcr.io/startse/reunioes-ia:latest"
+    },
+    {
+      "id": "financas-ia",
+      "nome": "Analista Financeiro",
+      "areas": [
+        "Financeiro"
+      ],
+      "problema": "A planilha de despesas chega e não há tempo de destrinchar.",
+      "ia": "Lê o CSV, mostra os números que importam e responde perguntas em linguagem natural.",
+      "integracoes": "Só a IA. Os dados ficam no navegador; só agregados vão para o modelo.",
+      "acento": "#0f6b3d",
+      "porta": 3009,
+      "captura": "capturas/financas-ia.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/financas-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-financas-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-financas-ia",
+      "docker": "docker run --rm -p 3009:10000 -v financas-ia-dados:/app/data ghcr.io/startse/financas-ia:latest"
+    },
+    {
+      "id": "voz-do-cliente",
+      "nome": "Voz do Cliente",
+      "areas": [
+        "CX",
+        "Marketing"
+      ],
+      "problema": "Centenas de comentários de clientes que ninguém consegue ler.",
+      "ia": "Agrupa por tema, mede o sentimento e o NPS e prioriza o que fazer.",
+      "integracoes": "IA (OpenRouter) para a análise. Opcionais: Notificações (e-mail ou Slack) para a análise semanal e o alerta de detratores; CRM (HubSpot, Zendesk, Intercom) para importar tickets; planilha viva para ler as notas de NPS.",
+      "acento": "#ab36ab",
+      "porta": 3010,
+      "captura": "capturas/voz-do-cliente.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/voz-do-cliente:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-voz-do-cliente",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-voz-do-cliente",
+      "docker": "docker run --rm -p 3010:10000 -v voz-do-cliente-dados:/app/data ghcr.io/startse/voz-do-cliente:latest"
+    },
+    {
+      "id": "radar-sinais",
+      "nome": "Radar de Sinais",
+      "areas": [
+        "Estratégia",
+        "Inovação"
+      ],
+      "problema": "Movimentos do mercado chegam tarde e dispersos.",
+      "ia": "Monitora termos cadastrados na web, gera grafos interativos e envia insights de negócio às 8h, 16h e 20h, com horários configuráveis.",
+      "integracoes": "IA (OpenRouter). Exa, Tavily e Bright Data (Search Engine e Scraper as Markdown, MCP HTTP com pro=1). E-mail ou Slack para alertas. Fontes públicas sem chave também disponíveis.",
+      "acento": "#0a707f",
+      "porta": 3011,
+      "captura": "capturas/radar-sinais.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "starter",
+      "discoGB": 1,
+      "discoGuarda": "a configuração, a conta, os termos monitorados, as rotinas e os radares",
+      "imagem": "ghcr.io/startse/radar-sinais:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-radar-sinais",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-radar-sinais",
+      "docker": "docker run --rm -p 3011:10000 -v radar-sinais-dados:/app/data ghcr.io/startse/radar-sinais:latest"
+    },
+    {
+      "id": "bussola-ia",
+      "nome": "Bússola de IA",
+      "areas": [
+        "Estratégia",
+        "Gestão"
+      ],
+      "problema": "A empresa não sabe em que estágio de maturidade em IA está nem o que fazer a seguir.",
+      "ia": "Coleta as respostas do time por um link, calcula o nível em 6 dimensões e escreve o diagnóstico com forças, lacunas e próximos passos.",
+      "integracoes": "IA (OpenRouter). Opcional: quadro de tarefas via MCP para os próximos passos e e-mail ou Slack para o resumo da coleta.",
+      "acento": "#1a6d93",
+      "porta": 3012,
+      "captura": "capturas/bussola-ia.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/bussola-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-bussola-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-bussola-ia",
+      "docker": "docker run --rm -p 3012:10000 -v bussola-ia-dados:/app/data ghcr.io/startse/bussola-ia:latest"
+    },
+    {
+      "id": "simulador-vendas",
+      "nome": "Simulador de Vendas",
+      "areas": [
+        "Vendas"
+      ],
+      "problema": "O time só aprende a vender na conversa real, com o cliente de verdade na frente.",
+      "ia": "Faz o papel do cliente numa conversa por voz e depois avalia o vendedor pela metodologia do time, com nota por critério e o trecho da conversa que justifica cada uma.",
+      "integracoes": "IA (OpenRouter) para simular o cliente e avaliar a conversa. ElevenLabs (opcional) melhora a voz do cliente — o treino já acontece por voz sem ela, pelo próprio navegador. Google e Microsoft (opcionais) para o vendedor se identificar no link em um toque. CRM por MCP (opcional) para registrar a nota no cliente. Notificações para mandar o feedback ao vendedor.",
+      "acento": "#3e68cc",
+      "porta": 3013,
+      "captura": "capturas/simulador-vendas.png",
+      "independente": true,
+      "capacidades": [
+        "artefato",
+        "formulario",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/simulador-vendas:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-simulador-vendas",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-simulador-vendas",
+      "docker": "docker run --rm -p 3013:10000 -v simulador-vendas-dados:/app/data ghcr.io/startse/simulador-vendas:latest"
+    },
+    {
+      "id": "custos-ia",
+      "nome": "Custos de IA",
+      "areas": [
+        "Financeiro",
+        "TI"
+      ],
+      "problema": "O CFO não sabe quanto a empresa gasta com ferramentas de IA nem se está dentro do orçamento.",
+      "ia": "Lê faturas de ferramentas de IA, compara o gasto contra o orçamento planejado e mostra o que estourou.",
+      "integracoes": "IA (OpenRouter) para reconhecer fornecedor, valor e data de cada nota. Gmail ou Outlook (um clique, sem criar projeto no Google Cloud) para ler as notas da caixa e enviar o fechamento. Câmbio automático pela cotação do Banco Central. Notificações (e-mail ou Slack) para o fechamento mensal.",
+      "acento": "#1f8441",
+      "porta": 3014,
+      "captura": "capturas/custos-ia.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/custos-ia:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-custos-ia",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-custos-ia",
+      "docker": "docker run --rm -p 3014:10000 -v custos-ia-dados:/app/data ghcr.io/startse/custos-ia:latest"
+    },
+    {
+      "id": "clone-site",
+      "nome": "Clone de Site",
+      "areas": [
+        "Marketing",
+        "Produto"
+      ],
+      "problema": "Montar uma página nova do zero leva semanas entre briefing, agência e ajustes.",
+      "ia": "Lê a captura de uma página de referência e escreve a sua versão em HTML, em português, com o nome e as cores da sua marca.",
+      "integracoes": "IA (OpenRouter, com um modelo que lê imagens). Opcional: um serviço de captura por endereço.",
+      "acento": "#792a3f",
+      "porta": 3015,
+      "captura": "capturas/clone-site.png",
+      "capacidades": [
+        "artefato",
+        "mcp"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/clone-site:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-clone-site",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-clone-site",
+      "docker": "docker run --rm -p 3015:10000 -v clone-site-dados:/app/data ghcr.io/startse/clone-site:latest"
+    },
+    {
+      "id": "prospeccao-linkedin",
+      "nome": "Prospecção no LinkedIn",
+      "areas": [
+        "Vendas"
+      ],
+      "problema": "Prospectar no LinkedIn consome horas por dia entre buscar perfis e escrever mensagem por mensagem.",
+      "ia": "A partir do cliente ideal, monta a lista de leads com sinal de intenção e escreve a sequência de mensagens de cada um.",
+      "integracoes": "IA (OpenRouter) para as mensagens; Prospect Halo (servidor MCP com OAuth) para buscar leads no seu LinkedIn e enviar as mensagens aprovadas; CRM (MCP) para mandar os leads escolhidos; Notificações (e-mail ou Slack) para receber leads novos toda semana. Sem o Prospect Halo, lista de exemplo.",
+      "acento": "#0a63c2",
+      "porta": 3016,
+      "captura": "capturas/prospeccao-linkedin.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "rotina"
+      ],
+      "demo": null,
+      "plano": "free",
+      "imagem": "ghcr.io/startse/prospeccao-linkedin:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-prospeccao-linkedin",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-prospeccao-linkedin",
+      "docker": "docker run --rm -p 3016:10000 -v prospeccao-linkedin-dados:/app/data ghcr.io/startse/prospeccao-linkedin:latest"
+    },
+    {
+      "id": "videos-campanha",
+      "nome": "Vídeos de Campanha",
+      "areas": [
+        "Marketing"
+      ],
+      "problema": "Produzir um vídeo curto para cada campanha leva semanas entre agência, aprovação e ajustes, e gastar créditos de geração sem saber o que vai sair custa caro.",
+      "ia": "A partir do briefing e da imagem do produto, propõe três conceitos com roteiro por cena, efeito sugerido e legendas por rede, para escolher antes de gerar o vídeo.",
+      "integracoes": "IA (OpenRouter) para os conceitos. Higgsfield (servidor MCP com OAuth) para gerar o vídeo de verdade a partir da imagem do produto, com o custo em créditos mostrado antes de confirmar. Sem ele, prévia ilustrativa. Notificações (e-mail ou Slack) para avisar quando o vídeo fica pronto.",
+      "acento": "#cc199d",
+      "porta": 3017,
+      "captura": "capturas/videos-campanha.png",
+      "capacidades": [
+        "artefato",
+        "mcp"
+      ],
+      "demo": null,
+      "plano": "starter",
+      "discoGB": 1,
+      "discoGuarda": "a configuração feita em /setup, a conta, as campanhas e os projetos e assets do Creative Flow",
+      "imagem": "ghcr.io/startse/videos-campanha:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-videos-campanha",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-videos-campanha",
+      "docker": "docker run --rm -p 3017:10000 -v videos-campanha-dados:/app/data ghcr.io/startse/videos-campanha:latest"
+    },
+    {
+      "id": "automl-pocket",
+      "nome": "AutoML",
+      "areas": [
+        "Dados",
+        "Financeiro",
+        "Vendas"
+      ],
+      "problema": "A empresa tem histórico de vendas, clientes e pagamentos em planilha, mas prever o que vem pela frente depende de um cientista de dados que ela não tem.",
+      "ia": "Lê a planilha, treina sozinho modelos de classificação, regressão e previsão de séries, escolhe o melhor e explica em português o que pesa no resultado — de quanto esperar de vendas e demanda a quem está prestes a cancelar e quais contas têm risco de atraso.",
+      "integracoes": "Nenhuma chave nem IA externa: os modelos são treinados dentro do próprio app. As previsões também ficam disponíveis dentro do seu assistente de IA (servidor MCP) e por um link público para a equipe enviar planilhas.",
+      "acento": "#0f766e",
+      "porta": 3018,
+      "captura": "capturas/automl-pocket.png",
+      "capacidades": [
+        "artefato",
+        "mcp",
+        "formulario"
+      ],
+      "demo": null,
+      "plano": "standard",
+      "discoGB": 1,
+      "variaveisGeradas": [
+        "AUTH_SECRET"
+      ],
+      "aposPublicar": "Abra o app e crie sua conta (nome, e-mail e senha). Não há IA para conectar: a planilha de exemplo já aparece pronta em Datasets e o treino roda dentro do próprio app.",
+      "padrao": "proprio",
+      "discoGuarda": "planilhas, modelos e a conta",
+      "imagem": "ghcr.io/startse/automl-pocket:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-automl-pocket",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-automl-pocket",
+      "docker": "docker run --rm -p 3018:10000 -v automl-pocket-dados:/app/data ghcr.io/startse/automl-pocket:latest"
+    },
+    {
+      "id": "build-agentflows",
+      "nome": "Build Agentflows",
+      "areas": [
+        "Gestão"
+      ],
+      "problema": "Tarefas que dependem de várias etapas de IA ficam espalhadas entre conversas e sistemas.",
+      "ia": "Crie fluxos visuais com agentes, decisões, ferramentas e aprovação humana. Teste cada etapa e publique uma versão integrável.",
+      "integracoes": "Login ChatGPT para os agentes; ferramentas MCP e requisições HTTP para conectar serviços; MCP e HTTP autenticado para executar fluxos publicados.",
+      "acento": "#163669",
+      "porta": 3019,
+      "captura": "capturas/build-agentflows.png",
+      "capacidades": [
+        "artefato",
+        "mcp"
+      ],
+      "demo": null,
+      "independente": true,
+      "plano": "starter",
+      "discoGB": 1,
+      "discoGuarda": "fluxos, versões publicadas, execuções, aprovações pendentes, conta e credenciais",
+      "imagem": "ghcr.io/startse/build-agentflows:latest",
+      "publicar": "https://render.com/deploy?repo=https://github.com/StartSe/ai-action-app-deploy/tree/deploy-build-agentflows",
+      "blueprint": "https://github.com/StartSe/ai-action-app-deploy/tree/deploy-build-agentflows",
+      "docker": "docker run --rm -p 3019:10000 -v build-agentflows-dados:/app/data ghcr.io/startse/build-agentflows:latest"
+    }
+  ]
+}

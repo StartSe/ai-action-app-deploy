@@ -1,0 +1,11 @@
+# Blueprint do hub AI Journey: site estático (gratuito no Render), sem build.
+# Gerado por scripts/gerar-deploy.mjs a partir de StartSe/ai-action-journey-demo. Não edite à mão.
+services:
+  - type: web
+    name: ai-action-journey-demo
+    runtime: static
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache

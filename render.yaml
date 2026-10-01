@@ -1,0 +1,22 @@
+# Blueprint de publicação de Busca Inteligente · AI Journey (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/busca-inteligente-ai-journey:latest.
+# Nenhuma chave é necessária aqui: após publicar, abra o app e conecte a IA nas Configurações.
+# No plano free o disco é efêmero: conta, chave e dados se perdem a cada deploy.
+# Gerado por scripts/gerar-deploy.mjs a partir de StartSe/ai-action-journey-demo/catalogo.json. Não edite à mão.
+services:
+  - type: web
+    name: busca-inteligente-ai-journey
+    runtime: image
+    image:
+      url: ghcr.io/startse/busca-inteligente-ai-journey:latest
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # Para manter a conta, a chave e os dados entre deploys (exige plano pago):
+    # disk:
+    #   name: busca-inteligente-ai-journey-dados
+    #   mountPath: /app/data
+    #   sizeGB: 1

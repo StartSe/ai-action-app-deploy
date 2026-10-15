@@ -1,0 +1,21 @@
+# Blueprint de publicação de Estúdio por Voz (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/estudio-por-voz:latest.
+# Este app exige o plano starter (pago) e cria um disco de 1 GB em /app/data, onde ficam projetos e versões, logos, conta, credenciais e o login do ChatGPT.
+# Crie sua conta. Em Configurações, conecte o OpenRouter (um clique) e, se quiser, o ChatGPT e um provedor de transcrição em tempo real. Depois toque no microfone ou num cartucho de fala simulada e veja site, marca, carrosséis, e-mail e anúncios nascerem juntos.
+services:
+  - type: web
+    name: estudio-por-voz
+    runtime: image
+    image:
+      url: ghcr.io/startse/estudio-por-voz:latest
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # Projetos e versões, logos, conta, credenciais e o login do ChatGPT ficam em /app/data e sobrevivem a deploys.
+    disk:
+      name: estudio-por-voz-dados
+      mountPath: /app/data
+      sizeGB: 1

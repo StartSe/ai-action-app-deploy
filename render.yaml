@@ -1,0 +1,21 @@
+# Blueprint de publicação de Atendente no WhatsApp (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/whatsapp-atendente:latest.
+# Este app exige o plano starter (pago) e cria um disco de 1 GB em /app/data, onde ficam a configuração, as conversas e a conta.
+# Depois de publicar, abra o app e clique em Configurações (`/setup`) para conectar a IA e o número de WhatsApp da empresa. O disco é o que faz a conexão e as conversas continuarem lá depois de cada publicação.
+services:
+  - type: web
+    name: whatsapp-atendente
+    runtime: image
+    image:
+      url: ghcr.io/startse/whatsapp-atendente:latest
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # A configuração, as conversas e a conta ficam em /app/data e sobrevivem a deploys.
+    disk:
+      name: whatsapp-atendente-dados
+      mountPath: /app/data
+      sizeGB: 1

@@ -1,0 +1,21 @@
+# Blueprint de publicação de Prospecção com IA (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/prospeccao-ia:latest.
+# Este app exige o plano starter (pago) e cria um disco de 1 GB em /app/data, onde ficam a configuração, a conta, os produtos, os perfis de cliente, as prospecções e os leads.
+# Nenhuma chave é necessária aqui.
+services:
+  - type: web
+    name: prospeccao-ia
+    runtime: image
+    image:
+      url: ghcr.io/startse/prospeccao-ia:latest
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # A configuração, a conta, os produtos, os perfis de cliente, as prospecções e os leads ficam em /app/data e sobrevivem a deploys.
+    disk:
+      name: prospeccao-ia-dados
+      mountPath: /app/data
+      sizeGB: 1

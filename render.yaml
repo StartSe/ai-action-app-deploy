@@ -1,0 +1,21 @@
+# Blueprint de publicação de Calendário Editorial (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/calendario-editorial:latest.
+# Este app exige o plano starter (pago) e cria um disco de 1 GB em /app/data, onde ficam a conta, as configurações, as bandeiras, as campanhas com as imagens, a grade do mês, os jobs e os links da agência e da aprovação.
+# Crie sua conta e abra a grade: "Preencher com um exemplo" monta um mês fictício. Para a versão real, conecte o OpenRouter em Configurações (a IA é paga com o crédito da sua conta no OpenRouter) e cadastre as suas bandeiras.
+services:
+  - type: web
+    name: calendario-editorial
+    runtime: image
+    image:
+      url: ghcr.io/startse/calendario-editorial:latest
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # A conta, as configurações, as bandeiras, as campanhas com as imagens, a grade do mês, os jobs e os links da agência e da aprovação ficam em /app/data e sobrevivem a deploys.
+    disk:
+      name: calendario-editorial-dados
+      mountPath: /app/data
+      sizeGB: 1

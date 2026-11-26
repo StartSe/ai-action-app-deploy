@@ -1,0 +1,20 @@
+# Blueprint de publicação de Voice SDR (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/voice-sdr:latest.
+# Crie um projeto no Supabase e um token de acesso em Account, Access Tokens. Abra o app, informe o projeto e o token em Instalar no seu Supabase: o app cria o banco e publica as funções em alguns minutos. Depois crie a conta de dono e siga o tutorial para ligar a IA, a voz e a telefonia.
+services:
+  - type: web
+    name: voice-sdr
+    runtime: image
+    image:
+      url: ghcr.io/startse/voice-sdr:latest
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # Para manter a configuração feita em /setup entre deploys (exige plano pago):
+    # disk:
+    #   name: voice-sdr-dados
+    #   mountPath: /app/data
+    #   sizeGB: 1

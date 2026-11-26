@@ -1,0 +1,21 @@
+# Blueprint de publicação de Cortes do Vídeo Longo (especificação: https://render.com/docs/blueprint-spec)
+# Imagem pública publicada pelo GitHub Actions em ghcr.io/startse/cortes-video-longo:latest.
+# Este app exige o plano standard (pago) e cria um disco de 10 GB em /app/data, onde ficam a conta, as configurações, os vídeos enviados, as transcrições e os cortes.
+# Crie sua conta e, em Configurações, conecte o OpenRouter com um clique. Depois cole o link da live (MP4 ou HLS) ou envie o arquivo MP4. O disco guarda os vídeos e os cortes depois de cada publicação.
+services:
+  - type: web
+    name: cortes-video-longo
+    runtime: image
+    image:
+      url: ghcr.io/startse/cortes-video-longo:latest
+    plan: standard
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+    # A conta, as configurações, os vídeos enviados, as transcrições e os cortes ficam em /app/data e sobrevivem a deploys.
+    disk:
+      name: cortes-video-longo-dados
+      mountPath: /app/data
+      sizeGB: 10
